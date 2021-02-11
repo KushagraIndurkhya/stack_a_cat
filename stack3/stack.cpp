@@ -35,6 +35,8 @@ class node
             next = NULL;
         }     
 };
+
+
 /*
  * Struct: stack_meta
  * --------------------
@@ -52,10 +54,10 @@ typedef struct stack_meta{
         node* head;
         int max_size;
         int curr_size;
-}stack;
+}stack_info;
 
 /*vector to hold the stack_meta structs*/
-vector<stack> stacks;
+vector<stack_info> stacks;
 
 /*
  * Function:  create
@@ -65,9 +67,9 @@ vector<stack> stacks;
  * returns: stack_id of the created stack
  *                     
  */
-stack_id create(int max_size)
+stack::stack_id stack::create(int max_size)
 {
-    stack temp;
+    stack_info temp;
     temp.head=NULL;
     temp.max_size=max_size;
     temp.curr_size=0;
@@ -90,11 +92,9 @@ stack_id create(int max_size)
  *                     
  */
 
-void push (stack_id id,long long int data)
+void stack::push (stack::stack_id id,long long int data)
 {
     int idx=id.i-1;
-    
-    
     if (stacks[idx].curr_size == stacks[idx].max_size || stacks[idx].max_size == 0)
         return;
     node* temp=new node (data);
@@ -120,7 +120,7 @@ void push (stack_id id,long long int data)
  * returns: Void
  *                     
  */
-long long int pop (stack_id id)
+long long int stack::pop (stack::stack_id id)
 {
     int idx=id.i-1;
     
@@ -149,14 +149,14 @@ long long int pop (stack_id id)
  * returns: Void
  *                     
  */
-void destroy(stack_id id)
+void stack::destroy(stack::stack_id id)
 {
     int idx=id.i-1;
     if(!stacks[idx].head)
         return ;
     node* curr = stacks[idx].head;
     while (stacks[idx].head)
-        pop(id);
+        stack::pop(id);
 }
 /*
  * Function:  printstack
@@ -169,7 +169,7 @@ void destroy(stack_id id)
  * returns: Void
  *                     
  */
-void printstack(stack_id id)
+void stack::printstack(stack::stack_id id)
 {
     int idx=id.i-1;
     if (!stacks[idx].head)

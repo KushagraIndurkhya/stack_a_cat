@@ -11,8 +11,7 @@ For compilation of the cource codes , g++ needs to be installed.
 All the binaries are produced in ./bin directory .
 
 ## ``` $ make ```
-
-                                            or
+                                             or
 
 ## ``` $ make compile```
 

@@ -14,9 +14,9 @@ int main()
     int m,n;
     cin >> m >> n;
     //creating m stacks
-    stack_id stacks[m];
+    stack::stack_id stacks[m];
     for (int i = 1; i <= m; i++)
-        stacks[i]=create(n);
+        stacks[i]=stack::create(n);
     //performing n operatons
     for (int i = 0; i < n; i++)
     {
@@ -26,10 +26,10 @@ int main()
         if (operation=="push")
         {
             cin >> in;
-            push(stacks[sid],in);
+            stack::push(stacks[sid],in);
         }
         else if (operation=="pop")
-            pop(stacks[sid]);
+            stack::pop(stacks[sid]);
 
         else
         {
@@ -41,11 +41,11 @@ int main()
     for (int i = 1; i <= m; i++)
     {
         cout << i << " ";
-        printstack(stacks[i]);
+        stack::printstack(stacks[i]);
     }
     //destroying all stacks
     for (int i = 1; i <= m; i++)
-        destroy(stacks[i]);
+        stack::destroy(stacks[i]);
 
     return 0;
 }

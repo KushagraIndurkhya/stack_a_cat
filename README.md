@@ -59,6 +59,12 @@ For removing all the compiled binaries simple run ```$ make clean``` in the root
 
 ## Stack0
 
+Stack0 is a very trivial attempt of the implementation of stack using linked list where stack is not a class but rather a struct containing the information such as the pointer to the the head of the linked list , maximum size and current size , and these structs are contained in a vector seg_id is simply the index of the struct in that vector.This method doesn't make use of rich c++ features.
+
+## Stack1
+
+
+
 
 
 

@@ -14,7 +14,7 @@ class node{
 };
 
 class stack{
-    public:
+    
             /*struct for stack_id*/
             struct rep{
                 node* head;
@@ -23,7 +23,7 @@ class stack{
             };
             rep* p;
 
-
+            public:
                 void push(long long int);
                 long long int pop();
                 void printstack();

@@ -1,19 +1,21 @@
 /*
-Stack0 stack.cpp
+Stack14 stack.cpp
 Author: Kushagra Indurkhya (CS19B1017)
 */
 
 // Implementation of interface(stack.hpp) functions
 #include <iostream>
-#include "rep.hpp"
+#include "stack.hpp"
 
 using namespace std;
 
+//node constructor
 node::node(long long int val){
     data=val;
     next=NULL;
 }
 
+//push operation
 void rep::push (long long int data)
 {
     node* temp = new node(data);
@@ -33,6 +35,7 @@ void rep::push (long long int data)
     
 }
 
+//pop operation
 long long int rep::pop ( )
 {
     
@@ -51,6 +54,7 @@ long long int rep::pop ( )
         return res;
     }
 }
+//display the stack
 void rep::printstack()
 {
     if (!this->head)
@@ -66,7 +70,7 @@ void rep::printstack()
     }
     cout << "\n" ;     
 }
-
+//destroying the stack
 void rep::delete_stack()
 {
     node* curr = this->head;
@@ -74,7 +78,9 @@ void rep::delete_stack()
         this->pop();
     delete(this);
 }
+//...................................................................implementing argument functions................................................
 
+//finding and executing the operation
 argument argument_object :: operator() (int oper, argument arg)
 {
     for(oper_link*pp=oper_table;pp;pp=pp->next)
@@ -82,12 +88,15 @@ argument argument_object :: operator() (int oper, argument arg)
     return -1;
 }
 
+//adding an operation to operations linked list
+
 void argument_object::add_oper(int oo,PargumentF ff)
 {
     oper_link* temp=new oper_link(oo,ff,oper_table);
     this->oper_table = temp;
 }
 
+//removing an operation from oper_table
 void argument_object :: remove_oper(int oo)
 {
     if(this->oper_table->oper==oo)
@@ -109,6 +118,8 @@ void argument_object :: remove_oper(int oo)
         }
     }
 }
+
+//making a stack
 argument_object* make_stack(argument_object* p)
 {
     if(p==0) p=new argument_object(0,new rep());

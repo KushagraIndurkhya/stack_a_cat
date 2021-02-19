@@ -20,7 +20,8 @@ int main()
         stacks[i] = *make_stack();
     for (int i = 0; i < n; i++)
     {  
-        int sid,in;
+        int sid;
+        long long int in;
         string operation;
         cin >> sid >> operation ;
         if (operation=="push")
@@ -41,7 +42,6 @@ int main()
         cout << i << " ";
         stacks[i](stack_print);
         stacks[i](stack_destroy);
-        // delete(&stacks[i]);
     }
 
     return 0;

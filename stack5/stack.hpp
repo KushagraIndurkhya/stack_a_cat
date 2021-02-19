@@ -1,10 +1,21 @@
 /*
-Stack0 stack.hpp
+Stack5 stack.hpp
 Author: Kushagra Indurkhya (CS19B1017)
 */
 
 
-//interface for stack
+/*Interface for stack implementation*/
+
+/*
+Class: node for linked list
+Data Members:
+        data:data held in node
+        next : pointer to next node
+
+Methods: 
+        node():constructor
+
+*/
 class node{
         public:
             long long int data;
@@ -12,10 +23,22 @@ class node{
         node(long long int);
 
 };
+
 class stack{
     public:
-            /*struct for stack_id*/
+            /*
+                Class:rep :: class for representation of stack
+                Data Members:
+                        curr_size:current size of the stack
+                        max_Size : maximum allowed size
+                        head : pointer to the head od the linked list
+                        
+                Methods: 
+                        rep(int):constructor
+
+                */
             class rep{
+                    //making stack as friend class
                     friend stack;
                     private:
                             node* head;
@@ -31,8 +54,16 @@ class stack{
             * returns: stack_id of the created stack
             *                     
             */
-            static void cleanup(stack_id);
+            
             static stack_id create(int) ;
+        /*
+            * Function:  cleanup
+            * --------------------
+            * deletes a stack
+            * returns: stack_id of the created stack
+            *                     
+            */
+            static void cleanup(stack_id);
             /*
             * Function:  push
             * --------------------
@@ -45,7 +76,7 @@ class stack{
             * Function:  pop
             * --------------------
             * performs pop operation on the stack with given stack_id
-            * returns: Void
+            * returns: long long int
             *                     
             */
             static long long int pop(stack_id);

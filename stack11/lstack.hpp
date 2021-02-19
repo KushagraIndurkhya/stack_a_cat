@@ -1,3 +1,13 @@
+/*
+Class: node for linked list
+Data Members:
+        data:data held in node
+        next : pointer to next node
+
+Methods: 
+        node():constructor
+
+*/
 class node{
         public:
             long long int data;
@@ -6,7 +16,30 @@ class node{
 
 };
 class noop{};
-class lstack:public stack {
+
+/*
+Class: lstack
+Data Members:
+        curr_size:current size of the stack
+        max_Size : maximum allowed size
+        arr : pointer to the array containing the stack
+
+Methods:
+        lstack(): constructor
+        ~lstack(): destructor
+
+        push(long long int): Push data in stack
+                args: int to be pushed
+                returns: void
+        pop(): Pop a value from stack
+                args:
+                returns: popped value
+        printstack(): Print the stack
+                args:
+                returns: void
+
+*/
+class lstack {
                 node* head;
                 int max_size;
                 int curr_size;

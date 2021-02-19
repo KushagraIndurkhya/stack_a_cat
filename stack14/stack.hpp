@@ -1,9 +1,9 @@
-
-class noop{};
-
 class argument{
+    //enum for type indicator values
     enum type_indcator {non_arg,int_arg,ptr_arg,string_arg,ll_arg};
+    //type_indicator t
     type_indcator t;
+    //union of allowed data types
     union{
         int i;
         void* p;
@@ -11,8 +11,9 @@ class argument{
         long long int l;
     };
 
+    //arguments and operators
     public:
-        argument() : t(non_arg) {}
+        argument() : t(non_arg) {} //non_arg for default constructor
         argument(int ii) :i(ii),t(int_arg) {}
         argument(void* pp) :p(pp), t(ptr_arg) {}
         argument(char* ss) :s(ss), t(string_arg) {}
@@ -26,18 +27,19 @@ class argument{
 
 typedef argument (*PargumentF)(void*,argument);
 
+//node of linked list od operations table
 struct oper_link{
     oper_link* next;
     int oper ;
     PargumentF fct;
-
+    //constructor
     oper_link(int oo, PargumentF ff, oper_link*nn)
         : oper(oo) , fct(ff) , next(nn) {}
 };
 
 class argument_object {
-    void* p;
-    oper_link* oper_table;
+    void* p; //pointer to representation
+    oper_link* oper_table; //list of operations
     public:
 
         argument_object(oper_link*tbl=0, void*rep=0)
@@ -48,6 +50,8 @@ class argument_object {
         void add_oper(int , PargumentF);
         void remove_oper(int);
 };
+
+//nodeof linked list for stack implementation
 class node{
         public:
             long long int data;
@@ -57,14 +61,18 @@ class node{
 };
 
 argument_object* make_stack(argument_object* = 0);
+
 enum stack_oper {stack_destroy=99,stack_push,stack_pop,stack_print};
 
+//stack representation struct
 struct rep{
     node* head;
     int curr_size;
+    //constructor
     rep()
         : head(NULL), curr_size(0){}
     
+    //actual operations
     void push(long long int);
     long long int pop();
 
@@ -73,6 +81,7 @@ struct rep{
 
 };
 
+// making arguments for stack_operations
 static argument stack_push_fct(void* p,argument c)
 {
     ((rep*)p) -> push(c);
@@ -94,6 +103,7 @@ static argument stack_destroy_fct(void* p,argument)
     return -1;
 }
 
+//hiding message passing details from user
 class stack : public argument_object
 {
     argument_object*p;

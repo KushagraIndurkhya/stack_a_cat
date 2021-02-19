@@ -1,5 +1,5 @@
 /*
-Stack0 stack.cpp
+Stack1 stack.cpp
 Author: Kushagra Indurkhya (CS19B1017)
 */
 

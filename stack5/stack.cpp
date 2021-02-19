@@ -1,5 +1,5 @@
 /*
-Stack0 stack.cpp
+Stack5 stack.cpp
 Author: Kushagra Indurkhya (CS19B1017)
 */
 
@@ -8,21 +8,26 @@ Author: Kushagra Indurkhya (CS19B1017)
 #include <vector> 
 #include "stack.hpp"
 using namespace std;
+
+//constructor for node
 node::node(long long int val){
     data=val;
     next=NULL;
 }
+//constructor for rep class
 stack::rep::rep(int max)
 {
     head=NULL;
     curr_size=0;
     max_size=max;
 }
+//create function for stack
 stack::stack_id stack::create(int max_size)
 {
     stack::rep* temp_rep=new rep(max_size);
     return temp_rep;
 }
+
 void stack::cleanup(stack::stack_id id)
 {
     delete(id);   

@@ -1,10 +1,10 @@
-// /*
-// Stack0 driver.cpp
-// Author: Kushagra Indurkhya (CS19B1017)
-// */
+/*
+Stack14 driver.cpp
+Author: Kushagra Indurkhya (CS19B1017)
+*/
 #include <iostream>
 #include <string>
-#include "rep.hpp"
+#include "stack.hpp"
 
 using namespace std;
 
@@ -17,6 +17,7 @@ int main()
     stack stacks[m];
     for (int i = 1; i <= m; i++)
         stacks[i] = *(new stack());
+
     for (int i = 0; i < n; i++)
     {  
         int sid;
@@ -36,6 +37,7 @@ int main()
             exit(1);
         }         
     }
+    //printing all the stacks
     for (int i = 1; i <= m; i++)
     {
         cout << i << " ";

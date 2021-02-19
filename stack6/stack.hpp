@@ -1,10 +1,21 @@
 /*
-Stack0 stack.hpp
+Stack6 stack.hpp
 Author: Kushagra Indurkhya (CS19B1017)
 */
 
 
-//interface for stack
+/*Interface for stack implementation*/
+
+/*
+Class: node for linked list
+Data Members:
+        data:data held in node
+        next : pointer to next node
+
+Methods: 
+        node():constructor
+
+*/
 class node{
         public:
             long long int data;
@@ -12,6 +23,18 @@ class node{
         node(long long int);
 
 };
+/*
+Class:rep :: class for representation of stack
+Data Members:
+        curr_size:current size of the stack
+        max_Size : maximum allowed size
+        head : pointer to the head od the linked list
+        
+Methods: 
+        rep(int):constructor
+
+*/
+
 class rep{
         public:
                 node* head;
@@ -19,6 +42,7 @@ class rep{
                 int curr_size;
                 rep(int);
                     };
+/*class stack*/
 class stack{
     public:
            

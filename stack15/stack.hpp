@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+//node of linked list
 class node
 {
 public:
@@ -8,6 +8,7 @@ public:
     node *next;
     node(long long int);
 };
+//stack representation struct
 struct rep
 {
     node *head;
@@ -21,17 +22,15 @@ struct rep
     void printstack();
     void delete_stack();
 };
+//.................................................................................................................................
+
+
 class argument
 {
-    enum type_indcator
-    {
-        non_arg,
-        int_arg,
-        ptr_arg,
-        string_arg,
-        ll_arg
-    };
+    //type indicator enum
+    enum type_indcator{ non_arg, int_arg,ptr_arg,string_arg,ll_arg};
     type_indcator t;
+    //union of different data types
     union
     {
         int i;
@@ -39,7 +38,7 @@ class argument
         char *s;
         long long int l;
     };
-
+//arguments and operators
 public:
     argument() : t(non_arg) {}
     argument(int ii) : i(ii), t(int_arg) {}
@@ -53,8 +52,10 @@ public:
     operator long long int() { return t == ll_arg ? l : -1; }
 };
 
+//type defining argument
 typedef argument (*PargumentF)(void *, argument);
 
+//node for operations liked list
 struct oper_link
 {
     oper_link *next;
@@ -64,7 +65,9 @@ struct oper_link
     oper_link(int oo, PargumentF ff, oper_link *nn)
         : oper(oo), fct(ff), next(nn) {}
 };
+//.................................................................................................................
 
+//class for holding argument representation and methods
 class argument_class_rep
 {
 public:
@@ -75,14 +78,15 @@ public:
     void add_oper(int, PargumentF);
     void remove_oper(int);
 };
-
+//................................................................................................................
+//stack operations
 enum stack_oper{stack_destroy = 99,stack_push,stack_pop,stack_print};
+
 static argument stack_push_fct(void *p, argument c)
 {
     ((rep *)p)->push(c);
     return -1;
 }
-
 static argument stack_pop_fct(void *p, argument)
 {
     return (argument)((rep *)p)->pop();
@@ -97,33 +101,22 @@ static argument stack_destroy_fct(void *p, argument)
     ((rep *)p)->delete_stack();
     return -1;
 }
-
+//...................................................................................................................
+//creating stack_class of type argument_class_rep
 static argument_class_rep stack_class = *(new argument_class_rep());
-
 argument_class_rep *get_stack_class();
 
+//argument_object
 class argument_object
 {
     void *p;
     argument_class_rep *crep;
 
 public:
+    //constructor
     argument_object(argument_class_rep *cc, void *rep = 0)
         : crep(cc), p(rep) {}
     argument operator()(int oper, argument arg = argument());
 };
 
 argument_object *make_stack();
-
-// class stack : public argument_object
-// {
-//     argument_object*p;
-//     public:
-//         stack() {this->p=new argument_object(0,new rep());make_stack(this->p);}
-//         ~stack() {(*this->p)(stack_destroy);}
-
-//         void push(long long int c) {(*this->p)(stack_push,c);}
-//         long long int pop(){return (*this->p)(stack_pop);}
-//         void print(){(*this->p)(stack_print);}
-//         void destroy(){(*this->p)(stack_destroy);}
-// };

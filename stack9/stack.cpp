@@ -1,5 +1,5 @@
 /*
-Stack0 stack.cpp
+Stack9 stack.cpp
 Author: Kushagra Indurkhya (CS19B1017)
 */
 
@@ -8,11 +8,14 @@ Author: Kushagra Indurkhya (CS19B1017)
 #include <vector> 
 #include "stack.hpp"
 using namespace std;
+
+//node constructor
 node::node(long long int val){
     data=val;
     next=NULL;
 }
 
+//constructor for stack class
 stack::stack (int max_size)
 {
     stack::rep* new_rep = (stack::rep*) malloc(sizeof(stack::rep));
@@ -28,10 +31,6 @@ stack::~stack()
     free(this->p);
 }
 
-// void stack::cleanup(stack::stack_id id)
-// {
-//     free(id);   
-// }
 
 /*
  * Function:  push

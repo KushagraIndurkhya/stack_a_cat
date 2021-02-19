@@ -1,5 +1,5 @@
 /*
-Stack0 stack.cpp
+Stack15 stack.cpp
 Author: Kushagra Indurkhya (CS19B1017)
 */
 
@@ -8,12 +8,13 @@ Author: Kushagra Indurkhya (CS19B1017)
 #include "stack.hpp"
 
 using namespace std;
+//construtor for node
 node::node(long long int val)
 {
     data = val;
     next = NULL;
 }
-
+//pushing an element to the stack
 void rep::push(long long int data)
 {
     node *temp = new node(data);
@@ -30,7 +31,7 @@ void rep::push(long long int data)
         curr_size += 1;
     }
 }
-
+//poppping from stack
 long long int rep::pop()
 {
 
@@ -49,6 +50,7 @@ long long int rep::pop()
         return res;
     }
 }
+//printing the stack
 void rep::printstack()
 {
     if (!this->head)
@@ -64,7 +66,7 @@ void rep::printstack()
     }
     cout << "\n";
 }
-
+//deleting the stack
 void rep::delete_stack()
 {
     node *curr = this->head;
@@ -76,7 +78,9 @@ void rep::delete_stack()
         delete (temp);
     }
 }
+//..................................................................................................................................................
 
+//finding and exectuing  the operation
 argument argument_object ::operator()(int oper, argument arg)
 {
     for (oper_link *pp = this->crep->oper_table; pp; pp = pp->next)
@@ -84,13 +88,13 @@ argument argument_object ::operator()(int oper, argument arg)
             return pp->fct(p, arg);
     return -1;
 }
-
+//adding operation to operation linked list
 void argument_class_rep::add_oper(int oo, PargumentF ff)
 {
     oper_link *temp = new oper_link(oo, ff, oper_table);
     this->oper_table = temp;
 }
-
+//removing operation from linked list
 void argument_class_rep ::remove_oper(int oo)
 {
     if (this->oper_table->oper == oo)
@@ -112,7 +116,7 @@ void argument_class_rep ::remove_oper(int oo)
         }
     }
 }
-
+// adding operations to operations table 
 argument_class_rep *get_stack_class()
 {
     if (stack_class.oper_table == 0)
@@ -124,7 +128,7 @@ argument_class_rep *get_stack_class()
     }
     return &stack_class;
 }
-
+// making a new stack
 argument_object *make_stack()
 {
     return new argument_object(get_stack_class(), new rep);

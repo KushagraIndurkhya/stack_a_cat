@@ -1,5 +1,5 @@
 /*
-Stack0 driver.cpp
+Stack7 driver.cpp
 Author: Kushagra Indurkhya (CS19B1017)
 */
 
@@ -20,7 +20,8 @@ int main()
     //performing n operatons
     for (int i = 0; i < n; i++)
     {
-        int sid,in;
+        int sid;
+        long long int in;
         string operation;
         cin >> sid >> operation ;
         if (operation=="push")

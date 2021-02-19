@@ -1,5 +1,5 @@
 /*
-Stack0 stack.cpp
+Stack12 stack.cpp
 Author: Kushagra Indurkhya (CS19B1017)
 */
 
@@ -15,21 +15,27 @@ node::node(long long int val){
     data=val;
     next=NULL;
 }
+
+//.............................................................Implementations for stack.hpp.............................................
+//constructor for stack
 stack::stack (int max_size)
 {
     this->p = new lstack(max_size);
 }
+//destructor for stack
 stack::~stack()
 {
     delete (this->p);
 }
-
+//.............................................................Implementations for lstack.hpp.............................................
+//constructor for lstack
 lstack::lstack (int max_size)
 {
     this->head=NULL;
     this->max_size=max_size;
     this->curr_size=0;
 }
+//destructor for lstack
 lstack::~lstack()
 {
     while(this->head)
@@ -49,8 +55,7 @@ void lstack::push (long long int data)
     if (!this->head)
     {
         this->head = temp;
-        this->curr_size += 1;
-        
+        this->curr_size += 1;   
 
     } 
     else
@@ -96,7 +101,15 @@ void lstack::printstack()
     }
     cout << "\n" ;     
 }
-
+int lstack::size()
+{
+    return this->max_size;
+}
+int lstack::c_size()
+{
+    return this->curr_size;
+}
+//.............................................................Implementations for astack.hpp.............................................
 void astack::printstack()
 {
     if (!this->arr)
@@ -152,28 +165,28 @@ int astack::size()
 {
     return this->max_size;
 }
-int lstack::size()
-{
-    return this->max_size;
-}
+
 int astack::c_size()
 {
     return this->curr_size;
 }
-int lstack::c_size()
-{
-    return this->curr_size;
-}
+//...........................................................................................................................................
+
+//function to convert linked list implementation to array implementation
 rep* convert_from_l_to_a(stack& s)
 {
     rep* rp= s.get_rep();
     astack* ap= new astack(s.size());
     int c_size = s.c_size();
+    //creating a temp array to hold elements
     long long int temp[s.size()];
+    //popping from l stacks
     for (int i=0;i<c_size;i++)
             temp[i]=s.pop();
+    //pushing to astack
     for (int i=c_size-1;i>=0;i--)
         ap->push(temp[i]);
+    //replacing rep
     s.put_rep(ap);
     return rp;
 }

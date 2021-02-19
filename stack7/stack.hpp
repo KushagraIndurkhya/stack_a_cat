@@ -1,10 +1,23 @@
 /*
-Stack0 stack.hpp
+Stack7 stack.hpp
 Author: Kushagra Indurkhya (CS19B1017)
 */
 
 
-//interface for stack
+
+/*Interface for stack implementation*/
+
+/*
+Class: node for linked list
+Data Members:
+        data:data held in node
+        next : pointer to next node
+
+Methods: 
+        node():constructor
+
+*/
+
 class node{
         public:
             long long int data;
@@ -12,10 +25,16 @@ class node{
         node(long long int);
 
 };
-
+/*Class : stack
+    Data Members:
+        curr_size:current size of the stack
+        max_Size : maximum allowed size
+        head : pointer to the head od the linked list
+        */
+    
 class stack{
     public:
-            /*struct for stack_id*/
+            /*Stack implementation*/
                 node* head;
                 int max_size;
                 int curr_size;
@@ -61,7 +80,15 @@ class stack{
             *                     
             */
             static void printstack(stack_id);
+            /*
+            * Function:  cleanup
+            * --------------------
+            * Delete the stack
+            * returns: Void
+            *                     
+            */
             static void cleanup(stack_id);
+    
     //Making stack an abstract class
     private:
             virtual void dummy() = 0;

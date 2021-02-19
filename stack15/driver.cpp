@@ -1,7 +1,7 @@
-// /*
-// Stack0 driver.cpp
-// Author: Kushagra Indurkhya (CS19B1017)
-// */
+/*
+Stack15 driver.cpp
+Author: Kushagra Indurkhya (CS19B1017)
+*/
 #include <iostream>
 #include <string>
 #include "stack.hpp"
@@ -15,8 +15,11 @@ int main()
     cin >> m >> n;
     //creating m stacks
     argument_object* stacks[m];
+
     for (int i = 1; i <= m; i++)
         stacks[i] = make_stack();
+
+    //performing n operations
     for (int i = 0; i < n; i++)
     {
         int sid;
@@ -39,8 +42,8 @@ int main()
     for (int i = 1; i <= m; i++)
     {
         cout << i << " ";
-        (*stacks[i])(stack_print);
-        (*stacks[i])(stack_destroy);
+        (*stacks[i])(stack_print); //printing stack
+        (*stacks[i])(stack_destroy);//destroying stack
     }
 
     return 0;

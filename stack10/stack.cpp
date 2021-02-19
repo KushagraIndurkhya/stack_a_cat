@@ -1,5 +1,5 @@
 /*
-Stack0 stack.cpp
+Stack10 stack.cpp
 Author: Kushagra Indurkhya (CS19B1017)
 */
 
@@ -14,7 +14,7 @@ node::node(long long int val){
     data=val;
     next=NULL;
 }
-
+//...................................................................Implementations for lstack.hpp.........................................................
 lstack::lstack (int max_size)
 {
     this->head=NULL;
@@ -89,6 +89,8 @@ void lstack::printstack()
     cout << "\n" ;     
 }
 
+//...................................................................Implementations for astack.hpp.........................................................
+
 
 void astack::printstack()
 {
@@ -105,6 +107,7 @@ void astack::printstack()
     }
 
 }
+
 astack::astack (int max_size)
 { 
     this->arr= new long long int[max_size];
@@ -115,6 +118,7 @@ astack::~astack()
 {
     delete[] this->arr;
 }
+
 void astack::push (long long int data)
 {
     if (this->curr_size == this->max_size || this->max_size == 0)
@@ -125,6 +129,7 @@ void astack::push (long long int data)
         this->curr_size++;
     } 
 }
+
 long long int astack::pop ( )
 {
     

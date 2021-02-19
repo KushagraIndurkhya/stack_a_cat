@@ -1,10 +1,8 @@
 /*
-Stack0 stack.hpp
+Stack2 stack.hpp
 Author: Kushagra Indurkhya (CS19B1017)
 */
 
-
-//interface for stack
 class stack{
     public:
             /*struct for stack_id*/

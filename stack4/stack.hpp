@@ -1,10 +1,22 @@
 /*
-Stack0 stack.hpp
+Stack4 stack.hpp
 Author: Kushagra Indurkhya (CS19B1017)
 */
 
 
-//interface for stack
+/*Interface for stack implementation*/
+
+/*
+Class: node for linked list
+Data Members:
+        data:data held in node
+        next : pointer to next node
+
+Methods: 
+        node():constructor
+
+*/
+
 class node{
         public:
             long long int data;
@@ -12,9 +24,20 @@ class node{
         node(long long int);
 
 };
+
 class stack{
     public:
-            /*struct for stack_id*/
+             /*
+                Class:rep :: class for representation of stack
+                Data Members:
+                        curr_size:current size of the stack
+                        max_Size : maximum allowed size
+                        head : pointer to the head od the linked list
+                        
+                Methods: 
+                        rep(int):constructor
+
+                */
             class rep{
                     friend stack;
                     private:
@@ -23,6 +46,8 @@ class stack{
                             int curr_size;
                     };
             typedef rep* stack_id;
+            static void initialize(stack_id,int);
+            static void cleanup(stack_id);
             /*
             * Function:  create
             * --------------------
@@ -30,8 +55,7 @@ class stack{
             * returns: stack_id of the created stack
             *                     
             */
-            static void initialize(stack_id,int);
-            static void cleanup(stack_id);
+            
             static stack_id create(int) ;
             /*
             * Function:  push

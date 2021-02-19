@@ -5,9 +5,7 @@ Author: Kushagra Indurkhya (CS19B1017)
 
 // Implementation of interface(stack.hpp) functions
 #include <iostream>
-#include "stack.hpp"
-#include "lstack.hpp"
-#include "astack.hpp"
+#include "llstack.hpp"
 
 using namespace std;
 node::node(long long int val){
@@ -87,55 +85,4 @@ void lstack::printstack()
         }
     }
     cout << "\n" ;     
-}
-
-void astack::printstack()
-{
-    if (!this->arr)
-        cout << " ";
-    else
-    {
-        long long int * stack= this->arr;
-        for(int i=this->curr_size-1;i>=0;i--)
-        {
-            cout<<stack[i]<<" ";
-        }
-        cout << "\n" ;
-    }
-
-}
-astack::astack (int max_size)
-{ 
-    this->arr= new long long int[max_size];
-    this->max_size=max_size;
-    this->curr_size=0;
-}
-astack::~astack()
-{
-    delete[] this->arr;
-}
-void astack::push (long long int data)
-{
-    if (this->curr_size == this->max_size || this->max_size == 0)
-        return;
-    else
-    {
-        this->arr[this->curr_size]=data;
-        this->curr_size++;
-    } 
-}
-long long int astack::pop ( )
-{
-    
-    if (!this->arr)
-    {
-        cout << "EMPTY STACK \n";
-        return -1;
-    }
-    else
-    {
-        long long int res = this->arr[this->curr_size];
-        this->curr_size--;
-        return res;
-    }
 }

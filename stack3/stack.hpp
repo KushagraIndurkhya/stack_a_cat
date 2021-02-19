@@ -1,13 +1,17 @@
 /*
-Stack0 stack.hpp
+Stack3 stack.hpp
 Author: Kushagra Indurkhya (CS19B1017)
 */
 
 
-//interface for stack
 class stack{
     public:
-            /*struct for stack_id*/
+            /*
+                Class:stack_id :: class for containing integer id of stack
+                Data Members:
+                       i:id
+
+                */
             class stack_id{
                     friend stack;
                     private:

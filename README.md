@@ -122,9 +122,8 @@ In stack14 we improve upon stack13 by:
 
 ## Stack15
 
-In stack 15 further improving on stack14 we add space and time optimizations by instead of giving each object its own list of acceptable operations we keep set of acceptable operations on a common set of objects , for this we use a class to represent these.
+In stack 15 further improving on stack14 we add space and time optimizations by instead of giving each object its own list of acceptable operations we keep set of acceptable operations on a common set of objects , for this we use a class to represent these,in thtis way we limit the flexibility of the implementation 14 but make if more space and time efficient in the process.
 
 
 
-### ```Submitted by : Kushagra Indurkhya```
-###  ``` CS19B1017```
+### ```Author : Kushagra Indurkhya```

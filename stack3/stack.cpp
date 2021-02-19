@@ -99,7 +99,10 @@ void stack::push (stack::stack_id id,long long int data)
         return;
     node* temp=new node (data);
     if (!stacks[idx].head)
+    {
+        stacks[idx].curr_size += 1;
         stacks[idx].head = temp; 
+    }
     else
     {
         node* curr_head = stacks[idx].head;
@@ -135,6 +138,7 @@ long long int stack::pop (stack::stack_id id)
         long long int res = curr->data;
         stacks[idx].head=curr->next;
         delete(curr);
+        stacks[idx].curr_size -= 1;
         return res;
     }
 }

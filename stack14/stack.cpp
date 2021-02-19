@@ -123,7 +123,7 @@ void argument_object :: remove_oper(int oo)
 argument_object* make_stack(argument_object* p)
 {
     if(p==0) p=new argument_object(0,new rep());
-
+    //adding operations
     p->add_oper(stack_push,&stack_push_fct);
     p->add_oper(stack_pop,&stack_pop_fct);
     p->add_oper(stack_destroy,&stack_destroy_fct);

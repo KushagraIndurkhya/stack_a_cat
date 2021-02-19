@@ -8,6 +8,6 @@ compile:
 	mkdir -p bin;
 	for i in $(LIST); do ${CC} ${SOURCE} -o ${TARGET}; done
 	# echo "\e[0;32m Compiled stack$$i \342\234\224 \e[0m"; done
-	# for i in $(LIST); do echo "\e[0;31m....................................$$i......................................\e[0m";${TARGET}<inp.txt;done
+	for i in $(LIST); do echo "\e[0;31m....................................$$i......................................\e[0m";${TARGET}<inp.txt;done
 clean:
 	rm -r ./bin

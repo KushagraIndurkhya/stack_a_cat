@@ -55,6 +55,7 @@ void stack::push (stack::stack_id id,long long int data)
     if (!id->head)
     {
         id->head = temp;
+        id->curr_size += 1;
     } 
     else
     {
@@ -90,6 +91,7 @@ long long int stack::pop (stack::stack_id id)
         long long int res = curr->data;
         id->head=curr->next;
         delete(curr);
+        id->curr_size -= 1;
         return res;
     }
 }

@@ -98,7 +98,10 @@ void push (stack_id id,long long int data)
         return;
     node* temp=new node (data);
     if (!stacks[idx].head)
+    {
         stacks[idx].head = temp; 
+        stacks[idx].curr_size += 1;
+    }
     else
     {
         node* curr_head = stacks[idx].head;
@@ -134,6 +137,7 @@ long long int pop (stack_id id)
         long long int res = curr->data;
         stacks[idx].head=curr->next;
         delete(curr);
+        stacks[idx].curr_size -= 1;
         return res;
     }
 }

@@ -52,6 +52,7 @@ void stack::push (long long int data)
 
     if (!this->head)
     {
+        this->curr_size += 1;
         this->head = temp;
     } 
     else
@@ -88,6 +89,7 @@ long long int stack::pop ( )
         long long int res = curr->data;
         this->head=curr->next;
         delete(curr);
+        this->curr_size -= 1;
         return res;
     }
 }

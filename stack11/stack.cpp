@@ -89,7 +89,6 @@ void lstack::printstack()
     cout << "\n" ;     
 }
 
-
 void astack::printstack()
 {
     if (!this->arr)
@@ -128,7 +127,7 @@ void astack::push (long long int data)
 long long int astack::pop ( )
 {
     
-    if (curr_size==0)
+    if (!this->arr)
     {
         cout << "EMPTY STACK \n";
         return -1;

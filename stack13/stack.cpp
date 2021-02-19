@@ -45,16 +45,16 @@ void cat_object :: remove_oper(int oo)
 
 }
 
-cat_object::~cat_object()
-{
-    oper_link* curr=this->oper_table;
-    while(curr)
-    {
-        oper_link* temp=curr;
-        curr = curr->next;
-        delete(temp);
-    }
-}
+// cat_object::~cat_object()
+// {
+//     oper_link* curr=this->oper_table;
+//     while(curr)
+//     {
+//         oper_link* temp=curr;
+//         curr = curr->next;
+//         delete(temp);
+//     }
+// }
 cat_object* make_stack(cat_object* p)
 {
     if(p==0) p=new cat_object(0,new rep());

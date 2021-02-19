@@ -116,7 +116,7 @@ void push (stack_id id,long long int data)
  * id: Stack_id
  *
  *
- * returns: Void
+ * returns: popped element
  *                     
  */
 long long int pop (stack_id id)

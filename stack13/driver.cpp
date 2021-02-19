@@ -41,7 +41,7 @@ int main()
         cout << i << " ";
         stacks[i](stack_print);
         stacks[i](stack_destroy);
-        delete(&stacks[i]);
+        // delete(&stacks[i]);
     }
 
     return 0;

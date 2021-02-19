@@ -21,9 +21,6 @@ class cat_object {
 
         void add_oper(int , PcatF);
         void remove_oper(int);
-
-        void delete_cat();
-        ~cat_object();
 };
 
 

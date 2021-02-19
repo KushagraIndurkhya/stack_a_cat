@@ -21,7 +21,7 @@ stack::stack (int max_size)
 }
 stack::~stack()
 {
-    delete this->p;
+    delete (this->p);
 }
 
 lstack::lstack (int max_size)
@@ -81,18 +81,6 @@ long long int lstack::pop ( )
         return res;
     }
 }
-
-/*
- * Function:  printstack
- * --------------------
- * Print the contents of the stack with given stack_id
- * 
- * id: Stack_id
- *
- *
- * returns: Void
- *                     
- */
 void lstack::printstack()
 {
     if (!this->head)

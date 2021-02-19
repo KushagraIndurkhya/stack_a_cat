@@ -13,7 +13,6 @@ class node{
 
 };
 class rep{
-        // friend stack;
         public:
                 node* head;
                 int max_size;
@@ -22,7 +21,6 @@ class rep{
                     };
 class stack{
     public:
-            /*struct for stack_id*/
            
             typedef rep* stack_id;
             /*

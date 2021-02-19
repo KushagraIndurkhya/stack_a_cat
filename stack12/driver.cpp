@@ -42,12 +42,7 @@ int main()
             exit(1);
         }         
     }
-    //printing the state of all stacks after all operations
-    //  for (int i = 1; i <= m; i++)
-    // {
-    //     cout << i << " ";
-    //     stacks[i]->printstack();
-    // }
+
     for (int i = 1; i <= m; i++)
     {
         cout << i << " ";
